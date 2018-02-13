@@ -283,6 +283,9 @@ void Back_Tracking(Molecule *molecule, int v, int nSelected) {
 			continue;
 		}
 		*/
+		if (nSelected + state > d) {
+			continue;
+		}
 		if (state == 1) {
 			subgraph[nSelected] = v;
 			++nSelected;
@@ -290,7 +293,7 @@ void Back_Tracking(Molecule *molecule, int v, int nSelected) {
 		if ((v == molecule -> graph -> nVertices - 1) && (nSelected > 0)) {
 			update(molecule, nSelected);
 		}
-		if ((nSelected < d) && (v + 1 < molecule -> graph -> nVertices)) {
+		if (v + 1 < molecule -> graph -> nVertices) {
 			Back_Tracking(molecule, v + 1, nSelected);
 		}
 		if (state == 1) {
