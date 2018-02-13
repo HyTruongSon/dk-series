@@ -70,7 +70,7 @@ public:
 		assert(graph1 -> nVertices == graph2 -> nVertices);
 
 		for (int i = 0; i < graph1 -> nVertices; ++i) {
-			if ((!used[i]) && (graph1 -> label[v] == graph2 -> label[i])) {
+			if ((!used[i]) && (graph1 -> label[v] == graph2 -> label[i]) && (graph1 -> degree[v] == graph2 -> degree[i])) {
 				perm[v] = i;
 				used[i] = true;
 				if (v + 1 < graph1 -> nVertices) {
