@@ -35,6 +35,30 @@ public:
 			label[u] = -1; // -1 denotes that this vertex is not label
 		}
 	}
+
+	void add_edge(int u, int v, int weight) {
+		adj[u][v] = weight;
+		adj[v][u] = weight;
+	}
+
+	void set_label(int v, int label) {
+		this -> label[v] = label;
+	}
+
+	int get_label(int v) {
+		return label[v];
+	}
+
+	void update_degree() {
+		for (int u = 0; u < nVertices; ++u) {
+			degree[u] = 0;
+			for (int v = 0; v < nVertices; ++v) {
+				if (adj[u][v] > 0) {
+					++degree[u];
+				}
+			}
+		}
+	}
 };
 
 #endif
