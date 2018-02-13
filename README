@@ -1,4 +1,37 @@
-Generate all non-isomorphic graphs of size <= d:
+(1) Dataset: Harvard Clean Engery Project Dataset (HCEP)
+Directory: HCEP-50K/
+Files:
+- 50K.basics: Basic atomic type (C, H, Se, etc.)
+- 50K.train.graph: Training graphs with adjacency matrices
+- 50K.train.atoms: Training graphs with atomic types (for each vertex)
+- 50K.train.pce: Training learing taget (PCE value) for each molecule
+- 50K.test.graph: Testing graphs with adjacency matrices
+- 50K.test.atoms: Testing graphs with atomic types (for each vertex)
+- 50K.test.pce: Testing learing taget (PCE value) for each molecule
+- 50K.val.graph: Validation graphs with adjacency matrices
+- 50K.val.atoms: Validation graphs with atomic types (for each vertex)
+- 50K.val.pce: Validation learing taget (PCE value) for each molecule
+
+(2) dK-Series features is in directory HCEP-50K-dKSeries/:
+- File 50K.train.dk-features.[value of d]: dK feature for each molecule in the training set (given the value of d)
+- File 50K.test.dk-features.[value of d]: dK feature for each molecule in the testing set (given the value of d)
+- File 50K.val.dk-features.[value of d]: dK feature for each molecule in the validation set (given the value of d)
+
+To extract dK-Series feature for the HCEP dataset:
+$ g++ dk_series_feature_extraction.cpp 
+$ ./a.out [value of d]
+
+It will write outputs to files 50K.train.dk-features.[value of d], 50K.test.dk-features.[value of d], 50K.val.dk-features.[value of d] in the directory HCEP-50K-dKSeries/.
+
+However, you do not have to extract the dK-Series features again. The features are there in the HCEP-50K-dKSeries/ directory.
+
+Warning: For d >= 4, it will take a long time running!
+
+(3) Generate all non-isomorphic graphs (by Back-Tracking algorithm) of size <= d:
 $ g++ find_non_isomorphic_graphs.cpp
 $ ./a.out [value of d]
 Warning: d >= 7 would take very long time!
+
+(4) Class Graph.h: Data structure to store graphs
+
+(5) Class GraphIsomorphism.h: Algorithm to check whether two graphs are isomorphic (by Back-Tracking algorithm)
