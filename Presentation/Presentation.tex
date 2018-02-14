@@ -1,0 +1,203 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{fourier}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}		
+\usepackage{amssymb}
+\usepackage{beamerthemesplit}
+\usepackage{bezier}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{longtable}
+\usepackage{makeidx}
+\usepackage{rotating}
+\usepackage{wrapfig}
+\usepackage{multirow}
+\usepackage{pgf}
+\usepackage{ragged2e}
+
+\usetheme{Madrid}
+\usefonttheme{serif}
+\usecolortheme{default}
+
+\graphicspath{ {../HCEP-50K-figures/} }
+
+\title[Learning Molecular Representation]{Learning Molecular Representation}
+\author[Hy et al.]{Hy Truong Son, Nguyen Duc Hai \\ Advisor: Prof. Risi Kondor}
+\institute[UChicago]{The University of Chicago}
+\date{December 2017}
+
+\begin{document}
+
+\logo{\includegraphics[height=0.5cm]{Logo.jpg}}
+
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Molecular Chemical Representation}
+\begin{justify}
+\begin{center}
+	Harvard Clean Energy Project Dataset (HCEP)
+\end{center}
+\begin{center}
+	\includegraphics[scale=0.5]{sketcher}
+\end{center}
+Compound: $C_{18}H_9N_3OSSe$ \\
+SMILES: C1C=CC=C1c1cc2[Se]c3c4occc4c4nsnc4c3c2cn1 \\
+Power Conversion Efficiency (PCE, range 0 - 11): 5.16195
+\end{justify}
+\end{frame}
+
+\begin{frame}
+\frametitle{Molecular Graph Representation}
+\begin{justify}
+\begin{center}
+	\includegraphics[scale=0.5]{sketcher}
+	\includegraphics[scale=0.5]{adjacency}
+\end{center}
+\begin{center}
+Molecule $C_{18}H_9N_3OSSe$ \ \ \ \ \ \ Adjacency matrix
+\end{center}
+\end{justify}
+\end{frame}
+
+\begin{frame}
+\frametitle{dK-Series Algorithms (1)}
+\begin{justify}
+Github repository: 
+\begin{center}
+\url{https://github.com/HyTruongSon/dk-series}
+\end{center}
+Reference: 
+\begin{center}
+\textbf{Systematic Topology Analysis and Generation Using Degree Correlations} \\ ACM SIGCOMM 2006
+\end{center}
+\end{justify}
+\end{frame}
+
+\begin{frame}
+\frametitle{dK-Series Algorithms (2)}
+\begin{justify}
+Algorithm:
+\begin{enumerate}
+	\item Extract all subgraphs of size $d$ in a molecular graph.
+	\item Classify each subgraph as 1 element of the set of non-isomorphic graphs of size $d$.
+	\item Based on the subgraph classification, we build the frequency vector (probability distribution) and use the frequency vector as the molecular graph representation. 
+\end{enumerate}
+Remark: Instead of using vertex degree, we use atomic types (for example, Carbon - C, Hydrogen - H, etc.).
+\end{justify}
+\end{frame}
+
+\begin{frame}
+\frametitle{PCA of dK-features $d = 1$}
+\begin{justify}
+\begin{center}
+	\includegraphics[scale=0.5]{d1-PCA}
+\end{center}
+\end{justify}
+\end{frame}
+
+\begin{frame}
+\frametitle{PCA of dK-features $d = 2$}
+\begin{justify}
+\begin{center}
+	\includegraphics[scale=0.5]{d2-PCA}
+\end{center}
+\end{justify}
+\end{frame}
+
+\begin{frame}
+\frametitle{PCA of dK-features $d = 3$}
+\begin{justify}
+\begin{center}
+	\includegraphics[scale=0.5]{d3-PCA}
+\end{center}
+\end{justify}
+\end{frame}
+
+\begin{frame}
+\frametitle{PCA of dK-features $d = 4$}
+\begin{justify}
+\begin{center}
+	\includegraphics[scale=0.5]{d4-PCA}
+\end{center}
+\end{justify}
+\end{frame}
+
+\begin{frame}
+\frametitle{Histogram of distributions $d = 1$}
+\begin{justify}
+\begin{center}
+	\includegraphics[scale=0.5]{d1}
+\end{center}
+\end{justify}
+\end{frame}
+
+\begin{frame}
+\frametitle{Histogram of distributions $d = 2$}
+\begin{justify}
+\begin{center}
+	\includegraphics[scale=0.5]{d2}
+\end{center}
+\end{justify}
+\end{frame}
+
+\begin{frame}
+\frametitle{Histogram of distributions $d = 3$}
+\begin{justify}
+\begin{center}
+	\includegraphics[scale=0.5]{d3}
+\end{center}
+\end{justify}
+\end{frame}
+
+\begin{frame}
+\frametitle{Histogram of distributions $d = 4$}
+\begin{justify}
+\begin{center}
+	\includegraphics[scale=0.5]{d4}
+\end{center}
+\end{justify}
+\end{frame}
+
+\begin{frame}
+\frametitle{Results: Linear Regression}
+\begin{justify}
+\begin{center}
+\begin{tabular}{|| c | c | c ||} 
+\hline
+& Test MAE & Test RMSE \\
+\hline
+$d = 1$ & 1.492278 & 3.457323 \\
+\hline
+$d = 2$ & 1.255755 & 2.545540 \\
+\hline
+$d = 3$ & 1.130819 & 2.194515 \\
+\hline 
+$d = 4$ & \textbf{1.025007} & \textbf{1.774689} \\
+\hline
+\end{tabular}
+\end{center}
+
+
+\end{justify}
+\end{frame}
+
+\begin{frame}
+\frametitle{Publication}
+For more detail, read our paper \textbf{Covariant Compositional Networks For Learning Graphs} (ICLR 2018 - Workshop) [Kondor et. al.] \\
+\begin{center}
+\url{https://openreview.net/forum?id=SkIv3MAUf}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+\begin{center}
+Thank you very much for your attention!
+\end{center}
+\end{frame}
+
+
+\end{document}
