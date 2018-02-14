@@ -27,11 +27,20 @@ However, you do not have to extract the dK-Series features again. The features a
 
 Warning: For d >= 4, it will take a long time running!
 
-(3) Generate all non-isomorphic graphs (by Back-Tracking algorithm) of size <= d:
+(3) Linear Regression in MATLAB: 
+Run linear_regression.m given 1 input parameter that is d.
+
+(4) Visualize the histogram between predicted values and ground-truth values in MATLAB: 
+Run multi_histograms.m given 1 input parameter that is d.
+
+(5) Visualize the dK-Series features in low-dimensional with Principle Component Analysis (PCA) in MATLAB:
+Run PCA_visual.m given 1 input parameter that is d.
+
+(6) Generate all non-isomorphic graphs (by Back-Tracking algorithm) of size <= d:
 $ g++ find_non_isomorphic_graphs.cpp
 $ ./a.out [value of d]
 Warning: d >= 7 would take very long time!
 
-(4) Class Graph.h: Data structure to store graphs
+(7) Class Graph.h: Data structure to store graphs
 
-(5) Class GraphIsomorphism.h: Algorithm to check whether two graphs are isomorphic (by Back-Tracking algorithm)
+(8) Class GraphIsomorphism.h: Algorithm to check whether two graphs are isomorphic (by Back-Tracking algorithm)
