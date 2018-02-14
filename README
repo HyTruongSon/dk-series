@@ -44,3 +44,5 @@ Warning: d >= 7 would take very long time!
 (7) Class Graph.h: Data structure to store graphs
 
 (8) Class GraphIsomorphism.h: Algorithm to check whether two graphs are isomorphic (by Back-Tracking algorithm)
+
+(9) Presentation slides (in Latex) in directory Presentation/

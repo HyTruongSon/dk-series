@@ -24,7 +24,7 @@
 \graphicspath{ {../HCEP-50K-figures/} }
 
 \title[Learning Molecular Representation]{Learning Molecular Representation}
-\author[Hy et al.]{Hy Truong Son, Nguyen Duc Hai \\ Advisor: Prof. Risi Kondor}
+\author[Hy \& Nguyen]{Hy Truong Son, Nguyen Duc Hai \\ Advisor: Prof. Risi Kondor}
 \institute[UChicago]{The University of Chicago}
 \date{December 2017}
 
@@ -35,43 +35,16 @@
 \frame{\titlepage}
 
 \begin{frame}
-\frametitle{Molecular Chemical Representation}
+\frametitle{Harvard Clean Energy Project Dataset (HCEP)}
 \begin{justify}
-\begin{center}
-	Harvard Clean Energy Project Dataset (HCEP)
-\end{center}
-\begin{center}
-	\includegraphics[scale=0.5]{sketcher}
-\end{center}
-Compound: $C_{18}H_9N_3OSSe$ \\
 SMILES: C1C=CC=C1c1cc2[Se]c3c4occc4c4nsnc4c3c2cn1 \\
 Power Conversion Efficiency (PCE, range 0 - 11): 5.16195
-\end{justify}
-\end{frame}
-
-\begin{frame}
-\frametitle{Molecular Graph Representation}
-\begin{justify}
 \begin{center}
-	\includegraphics[scale=0.5]{sketcher}
-	\includegraphics[scale=0.5]{adjacency}
+	\includegraphics[scale=0.25]{sketcher}
+	\includegraphics[scale=0.25]{adjacency}
 \end{center}
 \begin{center}
-Molecule $C_{18}H_9N_3OSSe$ \ \ \ \ \ \ Adjacency matrix
-\end{center}
-\end{justify}
-\end{frame}
-
-\begin{frame}
-\frametitle{dK-Series Algorithms (1)}
-\begin{justify}
-Github repository: 
-\begin{center}
-\url{https://github.com/HyTruongSon/dk-series}
-\end{center}
-Reference: 
-\begin{center}
-\textbf{Systematic Topology Analysis and Generation Using Degree Correlations} \\ ACM SIGCOMM 2006
+$C_{18}H_9N_3OSSe$ \ \ \ \ \ \ Adjacency matrix
 \end{center}
 \end{justify}
 \end{frame}
@@ -79,6 +52,10 @@ Reference:
 \begin{frame}
 \frametitle{dK-Series Algorithms (2)}
 \begin{justify}
+Reference: 
+\begin{center}
+\textbf{Systematic Topology Analysis and Generation Using Degree Correlations} \\ ACM SIGCOMM 2006
+\end{center}
 Algorithm:
 \begin{enumerate}
 	\item Extract all subgraphs of size $d$ in a molecular graph.
@@ -90,80 +67,9 @@ Remark: Instead of using vertex degree, we use atomic types (for example, Carbon
 \end{frame}
 
 \begin{frame}
-\frametitle{PCA of dK-features $d = 1$}
+\frametitle{Results \& Future Plan}
 \begin{justify}
-\begin{center}
-	\includegraphics[scale=0.5]{d1-PCA}
-\end{center}
-\end{justify}
-\end{frame}
-
-\begin{frame}
-\frametitle{PCA of dK-features $d = 2$}
-\begin{justify}
-\begin{center}
-	\includegraphics[scale=0.5]{d2-PCA}
-\end{center}
-\end{justify}
-\end{frame}
-
-\begin{frame}
-\frametitle{PCA of dK-features $d = 3$}
-\begin{justify}
-\begin{center}
-	\includegraphics[scale=0.5]{d3-PCA}
-\end{center}
-\end{justify}
-\end{frame}
-
-\begin{frame}
-\frametitle{PCA of dK-features $d = 4$}
-\begin{justify}
-\begin{center}
-	\includegraphics[scale=0.5]{d4-PCA}
-\end{center}
-\end{justify}
-\end{frame}
-
-\begin{frame}
-\frametitle{Histogram of distributions $d = 1$}
-\begin{justify}
-\begin{center}
-	\includegraphics[scale=0.5]{d1}
-\end{center}
-\end{justify}
-\end{frame}
-
-\begin{frame}
-\frametitle{Histogram of distributions $d = 2$}
-\begin{justify}
-\begin{center}
-	\includegraphics[scale=0.5]{d2}
-\end{center}
-\end{justify}
-\end{frame}
-
-\begin{frame}
-\frametitle{Histogram of distributions $d = 3$}
-\begin{justify}
-\begin{center}
-	\includegraphics[scale=0.5]{d3}
-\end{center}
-\end{justify}
-\end{frame}
-
-\begin{frame}
-\frametitle{Histogram of distributions $d = 4$}
-\begin{justify}
-\begin{center}
-	\includegraphics[scale=0.5]{d4}
-\end{center}
-\end{justify}
-\end{frame}
-
-\begin{frame}
-\frametitle{Results: Linear Regression}
-\begin{justify}
+Results of using Linear Regression on dK-features:
 \begin{center}
 \begin{tabular}{|| c | c | c ||} 
 \hline
@@ -179,25 +85,38 @@ $d = 4$ & \textbf{1.025007} & \textbf{1.774689} \\
 \hline
 \end{tabular}
 \end{center}
-
-
+Next steps:
+\begin{enumerate}
+\item Apply more physical features rather than just atomic types
+\item Apply state-of-the-art graph neural networks in learning molecular representations
+\item Test on other molecular datasets
+\end{enumerate}
 \end{justify}
-\end{frame}
-
-\begin{frame}
-\frametitle{Publication}
-For more detail, read our paper \textbf{Covariant Compositional Networks For Learning Graphs} (ICLR 2018 - Workshop) [Kondor et. al.] \\
-\begin{center}
-\url{https://openreview.net/forum?id=SkIv3MAUf}
-\end{center}
 \end{frame}
 
 \begin{frame}
 \frametitle{}
 \begin{center}
-Thank you very much for your attention!
+{\Large Thank you very much for your attention!}
 \end{center}
 \end{frame}
 
+\begin{frame}
+\frametitle{Q \& A}
+\begin{justify}
+\includegraphics[scale=0.2]{d1-PCA}
+\includegraphics[scale=0.2]{d2-PCA}
+\includegraphics[scale=0.2]{d3-PCA}
+\includegraphics[scale=0.2]{d4-PCA} \\
+\includegraphics[scale=0.2]{d1}
+\includegraphics[scale=0.2]{d2}
+\includegraphics[scale=0.2]{d3}
+\includegraphics[scale=0.22]{d4}
+\end{justify}
+\begin{center}
+\url{https://github.com/HyTruongSon/dk-series}
+\end{center}
+For more detail, read our paper \textbf{Covariant Compositional Networks For Learning Graphs} (ICLR 2018 - Workshop) [Kondor et. al.]
+\end{frame}
 
 \end{document}
